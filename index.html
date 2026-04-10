@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura by EK — Eva Kothari | Makeup Artist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blush: #F2D5C8;
+    --rose: #C8897A;
+    --deep-rose: #8B4A40;
+    --champagne: #EDE0D0;
+    --cream: #FAF6F1;
+    --warm-white: #FFFCF9;
+    --mocha: #3D2B25;
+    --taupe: #8C7B72;
+    --gold: #C4A882;
+    --soft-gold: #E8D5B0;
+    --text-main: #2C1F1A;
+    --text-muted: #7A6560;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--text-main); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    padding: 18px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(255,252,249,0.94); backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(200,137,122,0.15);
+    transition: all 0.3s ease;
+  }
+  .nav-logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:500; letter-spacing:0.08em; color:var(--deep-rose); text-decoration:none; }
+  .nav-links { display:flex; gap:32px; list-style:none; }
+  .nav-links a { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--text-muted); text-decoration:none; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--rose); }
+  .nav-cta { background:var(--deep-rose); color:#fff !important; padding:10px 22px; border-radius:50px; font-size:11px !important; }
+  .nav-cta:hover { background:var(--mocha) !important; }
+
+  /* ── HERO ── */
+  .hero { min-height:100vh; display:grid; grid-template-columns:1fr 1fr; position:relative; overflow:hidden; }
+  .hero-left { display:flex; flex-direction:column; justify-content:center; padding:140px 64px 80px 80px; z-index:2; }
+  .hero-eyebrow { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--rose); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+  .hero-eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--rose); }
+  h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(52px,6vw,82px); font-weight:400; line-height:1.08; color:var(--mocha); margin-bottom:28px; }
+  h1 em { font-style:italic; color:var(--rose); }
+  .hero-sub { font-size:15px; line-height:1.7; color:var(--text-muted); max-width:400px; margin-bottom:44px; }
+  .hero-btns { display:flex; gap:16px; align-items:center; }
+  .btn-primary { background:var(--deep-rose); color:#fff; padding:16px 36px; border-radius:50px; font-size:12px; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:background 0.2s,transform 0.2s; display:inline-block; }
+  .btn-primary:hover { background:var(--mocha); transform:translateY(-2px); }
+  .btn-ghost { color:var(--text-muted); font-size:12px; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; display:flex; align-items:center; gap:8px; transition:color 0.2s; }
+  .btn-ghost:hover { color:var(--rose); }
+  .btn-ghost span { width:32px; height:32px; border:1px solid currentColor; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:14px; }
+  .hero-stats { display:flex; gap:40px; margin-top:64px; padding-top:40px; border-top:1px solid rgba(200,137,122,0.2); }
+  .hero-stat-num { font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:500; color:var(--mocha); line-height:1; }
+  .hero-stat-label { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:6px; }
+  .hero-right { position:relative; overflow:hidden; }
+  .hero-img-grid { position:absolute; inset:0; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:4px; }
+  .hero-img-grid .img-cell { overflow:hidden; background:var(--champagne); }
+  .hero-img-grid .img-cell img { width:100%; height:100%; object-fit:cover; object-position:top center; transition:transform 0.6s ease; }
+  .hero-img-grid .img-cell:hover img { transform:scale(1.05); }
+  .hero-img-grid .img-cell:first-child { grid-row:1/3; }
+  .hero-overlay { position:absolute; bottom:40px; left:-32px; background:var(--warm-white); padding:24px 32px; border-radius:16px; box-shadow:0 8px 40px rgba(61,43,37,0.12); z-index:10; min-width:200px; }
+  .hero-overlay-tag { font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--rose); margin-bottom:8px; }
+  .hero-overlay-text { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:500; color:var(--mocha); line-height:1.3; }
+
+  /* ── SECTIONS ── */
+  section { padding:100px 80px; }
+  .section-eyebrow { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--rose); margin-bottom:16px; }
+  h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(36px,4vw,56px); font-weight:400; line-height:1.1; color:var(--mocha); }
+  h2 em { font-style:italic; color:var(--rose); }
+
+  /* ── GALLERY ── */
+  .gallery-section { background:var(--cream); padding:100px 0; }
+  .gallery-header { padding:0 80px; margin-bottom:60px; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; }
+  .gallery-filters { display:flex; gap:8px; flex-wrap:wrap; }
+  .filter-btn { padding:8px 20px; border:1px solid var(--blush); border-radius:50px; font-size:12px; letter-spacing:0.08em; color:var(--text-muted); background:transparent; cursor:pointer; transition:all 0.2s; font-family:'DM Sans',sans-serif; }
+  .filter-btn.active,.filter-btn:hover { background:var(--deep-rose); border-color:var(--deep-rose); color:#fff; }
+
+  /* Masonry-style portrait-aware grid */
+  .gallery-grid {
+    columns: 4;
+    column-gap: 6px;
+    padding: 0 6px;
+  }
+  .gallery-item {
+    break-inside: avoid;
+    margin-bottom: 6px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--champagne);
+    display: block;
+  }
+  .gallery-item img { width:100%; height:auto; display:block; transition:transform 0.5s ease; }
+  .gallery-item:hover img { transform:scale(1.04); }
+  .gallery-item-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(61,43,37,0.7) 0%,transparent 55%); opacity:0; transition:opacity 0.3s; display:flex; align-items:flex-end; padding:20px; }
+  .gallery-item:hover .gallery-item-overlay { opacity:1; }
+  .gallery-item-tag { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.85); }
+
+  /* Video gallery */
+  .video-gallery-grid {
+    columns: 3;
+    column-gap: 12px;
+    padding: 0 6px;
+    margin-top: 12px;
+  }
+  .video-gallery-item {
+    break-inside: avoid;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--mocha);
+  }
+  .video-gallery-item video {
+    width: 100%; height: auto; display:block;
+    border-radius: 12px;
+  }
+
+  /* ── ABOUT ── */
+  .about-section { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; background:var(--warm-white); }
+  .about-images { position:relative; height:620px; }
+  .about-img-main { position:absolute; top:0; left:0; width:72%; height:88%; object-fit:cover; object-position:top center; border-radius:4px; }
+  .about-img-accent { position:absolute; bottom:0; right:0; width:52%; height:52%; object-fit:cover; object-position:top center; border-radius:4px; border:6px solid var(--warm-white); }
+  .about-badge { position:absolute; top:42%; right:0; transform:translate(20%,-50%); background:var(--deep-rose); color:#fff; width:110px; height:110px; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:12px; z-index:5; }
+  .about-badge-num { font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:500; line-height:1; }
+  .about-badge-text { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; opacity:0.85; line-height:1.3; margin-top:4px; }
+  .about-content p { font-size:15px; line-height:1.8; color:var(--text-muted); margin-bottom:20px; }
+  .about-content p strong { color:var(--mocha); font-weight:500; }
+  .about-highlights { display:flex; gap:24px; margin-top:40px; flex-wrap:wrap; }
+  .about-highlight { display:flex; align-items:center; gap:10px; font-size:13px; color:var(--text-muted); }
+  .about-highlight-dot { width:8px; height:8px; border-radius:50%; background:var(--rose); flex-shrink:0; }
+
+  /* ── SERVICES ── */
+  .services-section { background:var(--mocha); color:#fff; }
+  .services-section .section-eyebrow { color:var(--gold); }
+  .services-section h2 { color:#fff; }
+  .services-section h2 em { color:var(--gold); }
+  .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:60px; }
+  .service-card { background:rgba(255,255,255,0.04); padding:48px 40px; transition:background 0.3s; border:1px solid rgba(255,255,255,0.06); cursor:pointer; }
+  .service-card:hover { background:rgba(200,137,122,0.15); }
+  .service-num { font-family:'Cormorant Garamond',serif; font-size:48px; color:rgba(255,255,255,0.08); line-height:1; margin-bottom:24px; }
+  .service-title { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:500; color:#fff; margin-bottom:12px; }
+  .service-desc { font-size:13px; line-height:1.7; color:rgba(255,255,255,0.5); }
+  .service-tag { display:inline-block; margin-top:24px; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); border-bottom:1px solid rgba(196,168,130,0.3); padding-bottom:2px; }
+
+  /* ── HIGHLIGHTS / STORIES ── */
+  .highlights-section { background:var(--cream); }
+  .highlights-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-top:60px; }
+  .highlight-item { cursor:pointer; text-align:center; }
+  .highlight-ring { width:100%; aspect-ratio:1; border-radius:50%; overflow:hidden; border:2px solid transparent; background:linear-gradient(var(--cream),var(--cream)) padding-box, linear-gradient(135deg,var(--rose),var(--gold)) border-box; margin:0 auto 12px; position:relative; transition:transform 0.3s; }
+  .highlight-item:hover .highlight-ring { transform:scale(1.05); }
+  .highlight-ring img { width:100%; height:100%; object-fit:cover; object-position:top center; }
+  .highlight-label { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); }
+
+  /* ── VIDEO HIGHLIGHTS (portrait reels) ── */
+  .reels-section { background:var(--warm-white); }
+  .reels-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:60px; }
+  .reel-card { position:relative; border-radius:16px; overflow:hidden; aspect-ratio:9/16; background:var(--mocha); cursor:pointer; }
+  .reel-card video { width:100%; height:100%; object-fit:cover; }
+  .reel-card-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(61,43,37,0.85) 0%,transparent 50%); display:flex; flex-direction:column; justify-content:flex-end; padding:20px; pointer-events:none; }
+  .reel-card-label { font-family:'Cormorant Garamond',serif; font-size:18px; color:#fff; margin-bottom:4px; }
+  .reel-card-sub { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.6); }
+  .reel-play-btn { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:52px; height:52px; background:rgba(255,255,255,0.2); backdrop-filter:blur(8px); border-radius:50%; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.4); transition:all 0.3s; pointer-events:none; }
+  .reel-play-btn::after { content:''; border-style:solid; border-width:8px 0 8px 16px; border-color:transparent transparent transparent #fff; margin-left:3px; }
+  .reel-card:hover .reel-play-btn { background:rgba(200,137,122,0.5); transform:translate(-50%,-50%) scale(1.1); }
+  .reel-card.playing .reel-play-btn { display:none; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-section { background:var(--cream); }
+  .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:60px; }
+  .testimonial-card { background:var(--warm-white); padding:40px 36px; border-radius:4px; border:1px solid rgba(200,137,122,0.12); transition:transform 0.3s,box-shadow 0.3s; }
+  .testimonial-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(61,43,37,0.08); }
+  .stars { display:flex; gap:4px; margin-bottom:20px; }
+  .star { width:14px; height:14px; background:var(--gold); clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
+  .testimonial-text { font-size:14px; line-height:1.8; color:var(--text-muted); font-style:italic; margin-bottom:28px; }
+  .testimonial-author { display:flex; align-items:center; gap:14px; }
+  .testimonial-avatar { width:42px; height:42px; border-radius:50%; background:var(--blush); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:18px; color:var(--deep-rose); flex-shrink:0; overflow:hidden; }
+  .testimonial-avatar img { width:100%; height:100%; object-fit:cover; }
+  .testimonial-name { font-weight:500; font-size:14px; color:var(--mocha); }
+  .testimonial-role { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-top:2px; }
+
+  /* Video testimonials */
+  .video-testimonials { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+  .video-testimonial-card { position:relative; border-radius:16px; overflow:hidden; aspect-ratio:9/16; background:var(--mocha); cursor:pointer; }
+  .video-testimonial-card video { width:100%; height:100%; object-fit:cover; }
+  .video-play-btn { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:56px; height:56px; background:rgba(255,255,255,0.2); backdrop-filter:blur(8px); border-radius:50%; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,0.4); transition:all 0.3s; }
+  .video-play-btn::after { content:''; border-style:solid; border-width:9px 0 9px 18px; border-color:transparent transparent transparent #fff; margin-left:4px; }
+  .video-testimonial-card:hover .video-play-btn { background:rgba(200,137,122,0.5); transform:translate(-50%,-50%) scale(1.1); }
+  .video-testimonial-card.playing .video-play-btn { display:none; }
+  .video-testimonial-overlay { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(to top,rgba(61,43,37,0.9) 0%,transparent 60%); padding:28px 24px 24px; pointer-events:none; }
+  .video-client-name { font-family:'Cormorant Garamond',serif; font-size:20px; color:#fff; margin-bottom:4px; }
+  .video-client-event { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.6); }
+
+  /* ── INQUIRY FORM ── */
+  .inquiry-section { display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:start; background:var(--mocha); padding:100px 80px; }
+  .inquiry-left .section-eyebrow { color:var(--gold); }
+  .inquiry-left h2 { color:#fff; }
+  .inquiry-left h2 em { color:var(--gold); }
+  .inquiry-left > p { font-size:14px; line-height:1.8; color:rgba(255,255,255,0.5); margin-top:20px; max-width:380px; }
+  .inquiry-info { margin-top:40px; display:flex; flex-direction:column; gap:14px; }
+  .inquiry-info-item { display:flex; align-items:center; gap:12px; font-size:13px; color:rgba(255,255,255,0.5); }
+  .inquiry-info-dot { width:6px; height:6px; border-radius:50%; background:var(--rose); flex-shrink:0; }
+  .form-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:48px 40px; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .form-group { margin-bottom:20px; }
+  .form-group label { display:block; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:8px; }
+  .form-group input,.form-group select,.form-group textarea { width:100%; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:14px 18px; font-size:14px; color:#fff; font-family:'DM Sans',sans-serif; transition:border-color 0.2s; outline:none; appearance:none; }
+  .form-group select option { background:var(--mocha); color:#fff; }
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color:rgba(200,137,122,0.6); background:rgba(255,255,255,0.1); }
+  .form-group input::placeholder,.form-group textarea::placeholder { color:rgba(255,255,255,0.25); }
+  .form-group textarea { resize:vertical; min-height:100px; }
+  .form-submit { width:100%; background:var(--rose); color:#fff; padding:18px; border:none; border-radius:50px; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; font-family:'DM Sans',sans-serif; cursor:pointer; transition:background 0.2s,transform 0.2s; margin-top:8px; }
+  .form-submit:hover { background:#b0705e; transform:translateY(-2px); }
+
+  /* Google RSVP */
+  .rsvp-banner { background:rgba(255,255,255,0.04); border:1px solid rgba(200,137,122,0.25); border-radius:16px; padding:32px 36px; margin-top:32px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+  .rsvp-icon { font-size:32px; }
+  .rsvp-text h4 { font-family:'Cormorant Garamond',serif; font-size:22px; color:#fff; margin-bottom:6px; }
+  .rsvp-text p { font-size:13px; color:rgba(255,255,255,0.5); }
+  .rsvp-btn { background:var(--gold); color:var(--mocha); padding:14px 28px; border-radius:50px; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; text-decoration:none; font-weight:500; transition:all 0.2s; white-space:nowrap; }
+  .rsvp-btn:hover { background:#d4b890; transform:translateY(-2px); }
+
+  /* ── INSTAGRAM ── */
+  .insta-section { background:var(--warm-white); }
+  .insta-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:4px; margin-top:48px; }
+  .insta-item { aspect-ratio:1; overflow:hidden; background:var(--champagne); cursor:pointer; position:relative; }
+  .insta-item img { width:100%; height:100%; object-fit:cover; object-position:top center; transition:transform 0.5s; }
+  .insta-item:hover img { transform:scale(1.08); }
+  .insta-item-overlay { position:absolute; inset:0; background:rgba(139,74,64,0.55); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s; }
+  .insta-item:hover .insta-item-overlay { opacity:1; }
+  .insta-icon { font-size:24px; color:#fff; }
+  .insta-cta { text-align:center; margin-top:40px; }
+
+  /* ── FOOTER ── */
+  footer { background:var(--text-main); color:rgba(255,255,255,0.55); padding:60px 80px 40px; display:grid; grid-template-columns:2fr 1fr 1fr; gap:60px; }
+  .footer-brand { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:400; color:#fff; margin-bottom:16px; }
+  .footer-tagline { font-size:13px; line-height:1.7; max-width:280px; margin-bottom:28px; }
+  .footer-social { display:flex; gap:12px; }
+  .footer-social a { width:38px; height:38px; border:1px solid rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.55); text-decoration:none; transition:all 0.2s; }
+  .footer-social a:hover { border-color:var(--rose); color:var(--rose); }
+  .footer-col h4 { font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:20px; }
+  .footer-col ul { list-style:none; }
+  .footer-col ul li { margin-bottom:10px; }
+  .footer-col ul li a { font-size:13px; color:rgba(255,255,255,0.55); text-decoration:none; transition:color 0.2s; }
+  .footer-col ul li a:hover { color:var(--rose); }
+  .footer-bottom { background:var(--text-main); padding:20px 80px 32px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.06); }
+  .footer-bottom p { font-size:12px; color:rgba(255,255,255,0.3); }
+
+  /* ── LIGHTBOX ── */
+  .lightbox { display:none; position:fixed; inset:0; background:rgba(44,31,26,0.97); z-index:1000; align-items:center; justify-content:center; flex-direction:column; }
+  .lightbox.active { display:flex; }
+  #lightboxImg { max-width:90vw; max-height:88vh; object-fit:contain; border-radius:4px; }
+  #lightboxVideo { max-width:90vw; max-height:88vh; border-radius:12px; }
+  .lightbox-close { position:absolute; top:20px; right:20px; width:44px; height:44px; background:rgba(255,255,255,0.1); border:none; border-radius:50%; color:#fff; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10; }
+  .lightbox-caption { margin-top:16px; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); }
+
+  /* ── SUCCESS MODAL ── */
+  .success-modal-backdrop { display:none; position:fixed; inset:0; background:rgba(44,31,26,0.85); z-index:2000; align-items:center; justify-content:center; padding:24px; }
+  .success-modal-backdrop.active { display:flex; }
+  .success-modal { background:var(--warm-white); border-radius:24px; padding:56px 48px; max-width:480px; width:100%; text-align:center; position:relative; animation:modalIn 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+  @keyframes modalIn { from { transform:scale(0.8); opacity:0; } to { transform:scale(1); opacity:1; } }
+  .success-modal .modal-sparkle { font-size:52px; margin-bottom:20px; display:block; animation:float 3s ease-in-out infinite; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  .success-modal h3 { font-family:'Cormorant Garamond',serif; font-size:34px; color:var(--mocha); margin-bottom:12px; }
+  .success-modal p { font-size:14px; line-height:1.7; color:var(--text-muted); margin-bottom:28px; }
+  .success-modal .close-modal { background:var(--deep-rose); color:#fff; padding:14px 32px; border:none; border-radius:50px; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-family:'DM Sans',sans-serif; cursor:pointer; transition:background 0.2s; }
+  .success-modal .close-modal:hover { background:var(--mocha); }
+
+  /* ── ADMIN PANEL ── */
+  .admin-toggle { position:fixed; bottom:24px; right:24px; z-index:500; background:var(--mocha); color:#fff; width:50px; height:50px; border-radius:50%; border:none; cursor:pointer; font-size:20px; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(61,43,37,0.3); transition:all 0.2s; opacity:0.5; }
+  .admin-toggle:hover { opacity:1; transform:scale(1.1); }
+  .admin-panel { display:none; position:fixed; bottom:84px; right:24px; z-index:500; background:var(--warm-white); border:1px solid rgba(200,137,122,0.2); border-radius:20px; padding:32px; width:340px; box-shadow:0 16px 60px rgba(61,43,37,0.2); }
+  .admin-panel.active { display:block; animation:slideUp 0.3s ease; }
+  @keyframes slideUp { from{transform:translateY(20px);opacity:0} to{transform:translateY(0);opacity:1} }
+  .admin-panel h3 { font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--mocha); margin-bottom:4px; }
+  .admin-panel .admin-sub { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:24px; }
+  .admin-upload-btn { display:flex; align-items:center; gap:10px; width:100%; padding:14px 18px; margin-bottom:10px; background:var(--cream); border:1px solid rgba(200,137,122,0.2); border-radius:12px; cursor:pointer; font-family:'DM Sans',sans-serif; font-size:13px; color:var(--text-muted); transition:all 0.2s; }
+  .admin-upload-btn:hover { background:var(--blush); border-color:var(--rose); color:var(--mocha); }
+  .admin-upload-btn .admin-icon { font-size:18px; }
+  .admin-testimonial-form { background:var(--cream); border-radius:12px; padding:20px; margin-top:10px; display:none; }
+  .admin-testimonial-form.active { display:block; }
+  .admin-input { width:100%; padding:10px 14px; border:1px solid rgba(200,137,122,0.2); border-radius:8px; font-size:13px; font-family:'DM Sans',sans-serif; color:var(--text-main); background:var(--warm-white); margin-bottom:10px; outline:none; }
+  .admin-input:focus { border-color:var(--rose); }
+  .admin-save-btn { background:var(--deep-rose); color:#fff; padding:10px 24px; border:none; border-radius:50px; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; font-family:'DM Sans',sans-serif; cursor:pointer; width:100%; transition:background 0.2s; }
+  .admin-save-btn:hover { background:var(--mocha); }
+
+  /* ── ANIMATIONS ── */
+  .fade-up { opacity:0; transform:translateY(30px); transition:opacity 0.7s ease,transform 0.7s ease; }
+  .fade-up.visible { opacity:1; transform:translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:1100px){
+    .gallery-grid { columns:3; }
+    .reels-grid { grid-template-columns:repeat(3,1fr); }
+  }
+  @media(max-width:900px){
+    nav { padding:16px 24px; }
+    .nav-links { display:none; }
+    .hero { grid-template-columns:1fr; }
+    .hero-right { display:none; }
+    .hero-left { padding:120px 24px 80px; }
+    section { padding:70px 24px; }
+    .gallery-section { padding:70px 0; }
+    .gallery-header { padding:0 24px; }
+    .gallery-grid { columns:2; }
+    .video-gallery-grid { columns:2; }
+    .about-section { grid-template-columns:1fr; }
+    .about-images { height:320px; }
+    .services-grid { grid-template-columns:1fr; }
+    .highlights-grid { grid-template-columns:repeat(3,1fr); }
+    .reels-grid { grid-template-columns:repeat(2,1fr); }
+    .testimonials-grid { grid-template-columns:1fr; }
+    .video-testimonials { grid-template-columns:repeat(2,1fr); }
+    .inquiry-section { grid-template-columns:1fr; padding:70px 24px; }
+    .insta-grid { grid-template-columns:repeat(3,1fr); }
+    footer { grid-template-columns:1fr; gap:32px; padding:48px 24px 32px; }
+    .footer-bottom { padding:20px 24px 24px; flex-direction:column; gap:8px; }
+    .form-row { grid-template-columns:1fr; }
+    .admin-panel { width:calc(100vw - 48px); right:24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">Aura by EK</a>
+  <ul class="nav-links">
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reels">Reels</a></li>
+    <li><a href="#testimonials">Love Notes</a></li>
+    <li><a href="#inquiry" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left fade-up">
+    <p class="hero-eyebrow">Pro Certified Bridal Makeup Artist</p>
+    <h1>Where Beauty<br>Meets its <em>Aura</em></h1>
+    <p class="hero-sub">Bridal looks, bridesmaid glam, and everyday elegance — crafted with love in Ahmedabad. Every face tells a story. Let yours shine.</p>
+    <div class="hero-btns">
+      <a href="#inquiry" class="btn-primary">Book Your Look</a>
+      <a href="#gallery" class="btn-ghost"><span>→</span> See My Work</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">388+</div><div class="hero-stat-label">Looks Created</div></div>
+      <div><div class="hero-stat-num">5★</div><div class="hero-stat-label">Rated Artist</div></div>
+      <div><div class="hero-stat-num">BSMH</div><div class="hero-stat-label">Certified</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-grid">
+      <div class="img-cell">
+        <img src="images/Image__23_.jpg" alt="Bride in red lehenga">
+      </div>
+      <div class="img-cell">
+        <img src="images/Image__01_.jpg" alt="Bride in ivory lehenga">
+      </div>
+      <div class="img-cell">
+        <img src="images/Image__9_.jpg" alt="Bridesmaid glam">
+      </div>
+    </div>
+    <div class="hero-overlay">
+      <div class="hero-overlay-tag">Latest Work</div>
+      <div class="hero-overlay-text">Bridal Season<br>2025–26 ✨</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-header fade-up">
+    <div>
+      <p class="section-eyebrow">Portfolio</p>
+      <h2>The <em>Art</em> of It All</h2>
+    </div>
+    <div class="gallery-filters">
+      <button class="filter-btn active" onclick="filterGallery('all',this)">All</button>
+      <button class="filter-btn" onclick="filterGallery('bridal',this)">Bridal</button>
+      <button class="filter-btn" onclick="filterGallery('bridesmaid',this)">Bridesmaid</button>
+      <button class="filter-btn" onclick="filterGallery('hairstyle',this)">Hairstyles</button>
+      <button class="filter-btn" onclick="filterGallery('party',this)">Party & Event</button>
+    </div>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- Real photos -->
+    <div class="gallery-item" data-cat="bridal" onclick="openLightbox(this,'image')">
+      <img src="images/Image__23_.jpg" alt="Bridal look — red lehenga">
+      <div class="gallery-item-overlay"><span class="gallery-item-tag">Bridal</span></div>
+    </div>
+    <div class="gallery-item" data-cat="bridal" onclick="openLightbox(this,'image')">
+      <img src="images/Image__25_.jpg" alt="Bridal look — ivory lehenga">
+      <div class="gallery-item-overlay"><span class="gallery-item-tag">Bridal</span></div>
+    </div>
+    <div class="gallery-item" data-cat="hairstyle" onclick="openLightbox(this,'image')">
+      <img src="images/Image__24_.jpg" alt="Bridal hairstyle">
+      <div class="gallery-item-overlay"><span class="gallery-item-tag">Hairstyles</span></div>
+    </div>
+    <div class="gallery-item" data-cat="bridesmaid" onclick="openLightbox(this,'image')">
+      <img src="images/Image__26_.jpg" alt="Bridesmaid look">
+      <div class="gallery-item-overlay"><span class="gallery-item-tag">Bridesmaid</span></div>
+    </div>
+    <div class="gallery-item" data-cat="party" onclick="openLightbox(this,'image')">
+      <img src="images/Image__9_.jpg" alt="Party glam — pink fringed top">
+      <div class="gallery-item-overlay"><span class="gallery-item-tag">Party & Event</span></div>
+    </div>
+    <div class="gallery-item" data-cat="party" onclick="openLightbox(this,'image')">
+      <img src="images/Image__16_.jpg" alt="Event glam — yellow saree">
+      <div class="gallery-item-overlay"><span class="gallery-item-tag">Party & Event</span></div>
+    </div>
+    <div class="gallery-item" data-cat="party" onclick="openLightbox(this,'image')">
+      <img src="images/Image__18_.jpg" alt="Event glam closeup">
+      <div class="gallery-item-overlay"><span class="gallery-item-tag">Party & Event</span></div>
+    </div>
+    <div class="gallery-item" data-cat="bridal" onclick="openLightbox(this,'image')">
+      <img src="images/Image__21_.jpg" alt="Artist at work">
+      <div class="gallery-item-overlay"><span class="gallery-item-tag">Behind the Brush</span></div>
+    </div>
+  </div>
+
+  <!-- Videos in gallery -->
+  <div class="gallery-header fade-up" style="margin-top:60px; margin-bottom:24px;">
+    <div>
+      <p class="section-eyebrow">Video Portfolio</p>
+      <h2>Transformations <em>in Motion</em></h2>
+    </div>
+  </div>
+  <div class="video-gallery-grid" id="videoGalleryGrid">
+    <div class="video-gallery-item">
+      <video src="videos/MicrosoftTeams-video__7_.mp4" controls preload="none" poster="images/Image__23_.jpg"></video>
+    </div>
+    <div class="video-gallery-item">
+      <video src="videos/MicrosoftTeams-video__8_.mp4" controls preload="none" poster="images/Image__16_.jpg"></video>
+    </div>
+    <div class="video-gallery-item">
+      <video src="videos/MicrosoftTeams-video__9_.mp4" controls preload="none" poster="images/Image__25_.jpg"></video>
+    </div>
+    <div class="video-gallery-item">
+      <video src="videos/MicrosoftTeams-video__10_.mp4" controls preload="none" poster="images/Image__9_.jpg"></video>
+    </div>
+    <div class="video-gallery-item">
+      <video src="videos/MicrosoftTeams-video__11_.mp4" controls preload="none" poster="images/Image__26_.jpg"></video>
+    </div>
+    <div class="video-gallery-item">
+      <video src="videos/MicrosoftTeams-video__12_.mp4" controls preload="none" poster="images/Image__18_.jpg"></video>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section fade-up" id="about">
+  <div class="about-images">
+    <img src="images/Image__21_.jpg" alt="Eva at work" class="about-img-main">
+    <img src="images/Image__02_.jpg" alt="Bridal result" class="about-img-accent">
+    <div class="about-badge">
+      <div class="about-badge-num">5+</div>
+      <div class="about-badge-text">Years of Passion</div>
+    </div>
+  </div>
+  <div class="about-content">
+    <p class="section-eyebrow">About Eva</p>
+    <h2>Trust the <em>Process</em></h2>
+    <p style="margin-top:24px;">Hi, I'm <strong>Eva Kothari</strong> — a pro certified bridal makeup artist based in Ahmedabad, Gujarat. Makeup has always been my language of expression; I speak it fluently on every face I touch.</p>
+    <p>I took a big leap and moved to Mumbai on my own to train at the prestigious <strong>Bombay School of Makeup and Hair (BSMH)</strong> — my first time away from family, but every moment was worth it. That experience shaped not just my skills, but my courage.</p>
+    <p>When I'm not transforming faces, you'll find me exploring new cities, discovering local cafés ☕, or planning my next food adventure. I believe a well-travelled soul creates more soulful art.</p>
+    <div class="about-highlights">
+      <div class="about-highlight"><div class="about-highlight-dot"></div><span>BSMH Pro Certified</span></div>
+      <div class="about-highlight"><div class="about-highlight-dot"></div><span>Bridal & Hairstyling</span></div>
+      <div class="about-highlight"><div class="about-highlight-dot"></div><span>Ahmedabad Based</span></div>
+      <div class="about-highlight"><div class="about-highlight-dot"></div><span>Available for Travel</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <p class="section-eyebrow">What I Do</p>
+  <h2>Services <em>Crafted</em><br>For Every Occasion</h2>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-num">01</div><div class="service-title">Bridal Makeup</div><div class="service-desc">Your big day deserves nothing less than perfection. From traditional to contemporary bridal looks — long-lasting, flawless, and uniquely yours.</div><span class="service-tag">Trial included</span></div>
+    <div class="service-card"><div class="service-num">02</div><div class="service-title">Bridesmaid & Family</div><div class="service-desc">Coordinated glamour for your entire bridal squad. Complement the bride while letting each person's individual beauty shine through.</div><span class="service-tag">Group bookings</span></div>
+    <div class="service-card"><div class="service-num">03</div><div class="service-title">Hair Styling</div><div class="service-desc">From intricate braided updos to cascading waves — hairstyles that hold all day and photograph beautifully from every angle.</div><span class="service-tag">All hair types</span></div>
+    <div class="service-card"><div class="service-num">04</div><div class="service-title">Party & Event Glam</div><div class="service-desc">Whether it's a mehendi, sangeet, reception, or cocktail night — show up as the most stunning version of yourself.</div><span class="service-tag">Day & evening</span></div>
+    <div class="service-card"><div class="service-num">05</div><div class="service-title">Mature Skin Makeup</div><div class="service-desc">Specialised techniques that celebrate and enhance mature skin — bringing out its radiance with age-appropriate, elegant looks.</div><span class="service-tag">Skin-first approach</span></div>
+    <div class="service-card"><div class="service-num">06</div><div class="service-title">Editorial & Photoshoot</div><div class="service-desc">Camera-ready artistry for portraits, fashion shoots, and special projects. Bold, clean, or conceptual — your vision, my craft.</div><span class="service-tag">Collaboration welcome</span></div>
+  </div>
+</section>
+
+<!-- REELS / VIDEO HIGHLIGHTS -->
+<section class="reels-section fade-up" id="reels">
+  <p class="section-eyebrow">Behind the Brush</p>
+  <h2>Watch the <em>Magic</em></h2>
+  <div class="reels-grid">
+    <div class="reel-card" onclick="playReel(this)">
+      <video src="videos/MicrosoftTeams-video__13_.mp4" preload="none" loop></video>
+      <div class="reel-play-btn"></div>
+      <div class="reel-card-overlay">
+        <div class="reel-card-label">Bridal Story</div>
+        <div class="reel-card-sub">The big day glow</div>
+      </div>
+    </div>
+    <div class="reel-card" onclick="playReel(this)">
+      <video src="videos/MicrosoftTeams-video__14_.mp4" preload="none" loop></video>
+      <div class="reel-play-btn"></div>
+      <div class="reel-card-overlay">
+        <div class="reel-card-label">Mehendi Look</div>
+        <div class="reel-card-sub">Warm & luminous</div>
+      </div>
+    </div>
+    <div class="reel-card" onclick="playReel(this)">
+      <video src="videos/MicrosoftTeams-video__15_.mp4" preload="none" loop></video>
+      <div class="reel-play-btn"></div>
+      <div class="reel-card-overlay">
+        <div class="reel-card-label">Hairstyle Reveal</div>
+        <div class="reel-card-sub">Half-up poetry</div>
+      </div>
+    </div>
+    <div class="reel-card" onclick="playReel(this)">
+      <video src="videos/MicrosoftTeams-video__16_.mp4" preload="none" loop></video>
+      <div class="reel-play-btn"></div>
+      <div class="reel-card-overlay">
+        <div class="reel-card-label">Reception Ready</div>
+        <div class="reel-card-sub">Golden hour glam</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section fade-up" id="testimonials">
+  <p class="section-eyebrow">Love Notes</p>
+  <h2>What My Brides <em>Say</em></h2>
+  <div class="testimonials-grid" id="testimonialsGrid" style="margin-top:60px;">
+    <div class="testimonial-card">
+      <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testimonial-text">Eva made me feel like an absolute queen on my wedding day. She understood exactly what I wanted and delivered something even more beautiful. My makeup lasted the entire 12-hour celebration!</p>
+      <div class="testimonial-author"><div class="testimonial-avatar">P</div><div><div class="testimonial-name">Priya Mehta</div><div class="testimonial-role">Bride, Dec 2024</div></div></div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testimonial-text">From my bridal trial to the big day, Eva was calm, professional, and SO talented. She even did my mom and mother-in-law's looks — everyone got so many compliments. Truly the best!</p>
+      <div class="testimonial-author"><div class="testimonial-avatar">S</div><div><div class="testimonial-name">Shruti Patel</div><div class="testimonial-role">Bride, Jan 2025</div></div></div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+      <p class="testimonial-text">I was super nervous about my sangeet look but Eva nailed it completely. She's not just an artist — she's warm, encouraging, and makes you feel so confident in the chair. Highly recommend!</p>
+      <div class="testimonial-author"><div class="testimonial-avatar">N</div><div><div class="testimonial-name">Nidhi Shah</div><div class="testimonial-role">Bridesmaid, Mar 2025</div></div></div>
+    </div>
+  </div>
+
+  <!-- Video Testimonials -->
+  <p class="section-eyebrow" style="margin-top:80px;">Video Reviews</p>
+  <h2 style="margin-top:8px;">See the <em>Joy</em> Firsthand</h2>
+  <div class="video-testimonials" id="videoTestimonialsGrid" style="margin-top:48px;">
+    <div class="video-testimonial-card" onclick="toggleVideoPlay(this)">
+      <video src="videos/MicrosoftTeams-video__7_.mp4" preload="none" loop></video>
+      <div class="video-play-btn"></div>
+      <div class="video-testimonial-overlay">
+        <div class="video-client-name">Vidhi's Bridal Story</div>
+        <div class="video-client-event">Calm · Confident · Pretty</div>
+      </div>
+    </div>
+    <div class="video-testimonial-card" onclick="toggleVideoPlay(this)">
+      <video src="videos/MicrosoftTeams-video__8_.mp4" preload="none" loop></video>
+      <div class="video-play-btn"></div>
+      <div class="video-testimonial-overlay">
+        <div class="video-client-name">Ameri's Mehndi Look</div>
+        <div class="video-client-event">A bride in her happy era</div>
+      </div>
+    </div>
+    <div class="video-testimonial-card" onclick="toggleVideoPlay(this)">
+      <video src="videos/MicrosoftTeams-video__9_.mp4" preload="none" loop></video>
+      <div class="video-play-btn"></div>
+      <div class="video-testimonial-overlay">
+        <div class="video-client-name">One Muse, Three Moods</div>
+        <div class="video-client-event">Bridal transformation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="inquiry-section" id="inquiry">
+  <div class="inquiry-left">
+    <p class="section-eyebrow">Book a Session</p>
+    <h2>Let's Create Your<br><em>Dream Look</em></h2>
+    <p>Every bride deserves to feel their most beautiful. Fill in the form and I'll get back to you within 24 hours with availability and package details.</p>
+    <div class="inquiry-info">
+      <div class="inquiry-info-item"><div class="inquiry-info-dot"></div><span>Based in Ahmedabad, Gujarat</span></div>
+      <div class="inquiry-info-item"><div class="inquiry-info-dot"></div><span>Available for outstation travel</span></div>
+      <div class="inquiry-info-item"><div class="inquiry-info-dot"></div><span>Bridal trials available on request</span></div>
+      <div class="inquiry-info-item"><div class="inquiry-info-dot"></div><span>DM on Instagram: @aura_by_ek</span></div>
+    </div>
+
+    <!-- Google RSVP Banner -->
+    <div class="rsvp-banner">
+      <div class="rsvp-icon">📋</div>
+      <div class="rsvp-text">
+        <h4>Quick RSVP via Google</h4>
+        <p>Prefer a quick Google Form? Use our express booking form — takes under 2 minutes.</p>
+      </div>
+      <!-- 🔧 REPLACE THE HREF BELOW with your actual Google Form URL -->
+      <a href="https://forms.gle/YOUR_GOOGLE_FORM_ID" target="_blank" class="rsvp-btn">Open RSVP Form</a>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <form id="inquiryForm" onsubmit="submitForm(event)">
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Priya Sharma" required></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+91 98765 43210" required></div>
+      </div>
+      <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com" required></div>
+      <div class="form-row">
+        <div class="form-group"><label>Event Date</label><input type="date" required></div>
+        <div class="form-group"><label>Service Needed</label>
+          <select required>
+            <option value="" disabled selected>Select service</option>
+            <option>Bridal Makeup</option>
+            <option>Bridesmaid Makeup</option>
+            <option>Hair Styling</option>
+            <option>Party / Event Glam</option>
+            <option>Mature Skin Makeup</option>
+            <option>Bridal + Hair Package</option>
+            <option>Group Booking</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Event Location / City</label><input type="text" placeholder="Ahmedabad, Gujarat"></div>
+      <div class="form-group"><label>Tell Me About Your Vision</label><textarea placeholder="Describe your dream look, outfit color, occasion vibe..."></textarea></div>
+      <button type="submit" class="form-submit">Send My Inquiry ✨</button>
+    </form>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta-section fade-up" id="instagram">
+  <div style="text-align:center;">
+    <p class="section-eyebrow" style="justify-content:center;display:flex;gap:12px;align-items:center;"><span style="display:block;width:32px;height:1px;background:var(--rose);"></span>Follow the Journey<span style="display:block;width:32px;height:1px;background:var(--rose);"></span></p>
+    <h2 style="margin-top:8px;">@aura_by_ek on <em>Instagram</em></h2>
+  </div>
+  <div class="insta-grid">
+    <div class="insta-item"><img src="images/Image__23_.jpg" alt=""><div class="insta-item-overlay"><span class="insta-icon">♡</span></div></div>
+    <div class="insta-item"><img src="images/Image__25_.jpg" alt=""><div class="insta-item-overlay"><span class="insta-icon">♡</span></div></div>
+    <div class="insta-item"><img src="images/Image__9_.jpg" alt=""><div class="insta-item-overlay"><span class="insta-icon">♡</span></div></div>
+    <div class="insta-item"><img src="images/Image__16_.jpg" alt=""><div class="insta-item-overlay"><span class="insta-icon">♡</span></div></div>
+    <div class="insta-item"><img src="images/Image__18_.jpg" alt=""><div class="insta-item-overlay"><span class="insta-icon">♡</span></div></div>
+    <div class="insta-item"><img src="images/Image__26_.jpg" alt=""><div class="insta-item-overlay"><span class="insta-icon">♡</span></div></div>
+  </div>
+  <div class="insta-cta">
+    <a href="https://www.instagram.com/aura_by_ek" target="_blank" class="btn-primary">Follow @aura_by_ek</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Aura by EK</div>
+    <div class="footer-tagline">Pro Certified Bridal Makeup Artist based in Ahmedabad. Trust the process — every look is a piece of art created with heart.</div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/aura_by_ek" target="_blank" title="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="mailto:eva@aurabyEK.com" title="Email">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#about">About Eva</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#inquiry">Book Now</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Services</h4>
+    <ul>
+      <li><a href="#services">Bridal Makeup</a></li>
+      <li><a href="#services">Hair Styling</a></li>
+      <li><a href="#services">Bridesmaid Glam</a></li>
+      <li><a href="#services">Party Looks</a></li>
+      <li><a href="#services">Mature Skin</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2025 Aura by EK — Eva Kothari | Makeup Artist, Ahmedabad</p>
+  <p>Crafted with ♡ for every bride</p>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="" style="display:none;">
+  <video id="lightboxVideo" controls style="display:none;"></video>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="success-modal-backdrop" id="successModal" onclick="closeModal(event)">
+  <div class="success-modal">
+    <span class="modal-sparkle">💫</span>
+    <h3>Thank you, beautiful!</h3>
+    <p>I've received your inquiry and will be in touch within 24 hours. Can't wait to create your dream look together! ✨</p>
+    <button class="close-modal" onclick="closeSuccessModal()">Close</button>
+  </div>
+</div>
+
+<!-- ADMIN PANEL TOGGLE -->
+<button class="admin-toggle" onclick="toggleAdmin()" title="Page Manager">⚙</button>
+
+<div class="admin-panel" id="adminPanel">
+  <h3>Page Manager</h3>
+  <div class="admin-sub">Add content to your site</div>
+
+  <!-- Upload Photo -->
+  <label class="admin-upload-btn">
+    <span class="admin-icon">🖼️</span>
+    <span>Add Photo to Gallery</span>
+    <input type="file" accept="image/*" multiple style="display:none;" onchange="adminUploadPhotos(event)">
+  </label>
+
+  <!-- Upload Video -->
+  <label class="admin-upload-btn">
+    <span class="admin-icon">🎬</span>
+    <span>Add Video to Gallery</span>
+    <input type="file" accept="video/*" multiple style="display:none;" onchange="adminUploadVideos(event)">
+  </label>
+
+  <!-- Add Video Testimonial -->
+  <label class="admin-upload-btn">
+    <span class="admin-icon">🎥</span>
+    <span>Add Testimonial Video</span>
+    <input type="file" accept="video/*" style="display:none;" onchange="adminUploadTestimonialVideo(event)">
+  </label>
+
+  <!-- Add Text Testimonial -->
+  <button class="admin-upload-btn" onclick="toggleTestimonialForm()">
+    <span class="admin-icon">💬</span>
+    <span>Add Client Review</span>
+  </button>
+
+  <div class="admin-testimonial-form" id="testimonialForm">
+    <input class="admin-input" id="tName" placeholder="Client Name">
+    <input class="admin-input" id="tRole" placeholder="Role (e.g. Bride, Dec 2025)">
+    <textarea class="admin-input" id="tText" placeholder="Review text..." rows="3" style="resize:vertical;"></textarea>
+    <button class="admin-save-btn" onclick="saveTestimonial()">Add Review ✨</button>
+  </div>
+</div>
+
+<script>
+// ── Fade-up observer ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold:0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── Nav scroll ──
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').style.boxShadow = window.scrollY > 60 ? '0 2px 20px rgba(61,43,37,0.08)' : '';
+});
+
+// ── Gallery filter ──
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.style.display = (cat==='all' || item.dataset.cat===cat) ? '' : 'none';
+  });
+}
+
+// ── Lightbox ──
+function openLightbox(item, type) {
+  const img = document.getElementById('lightboxImg');
+  const vid = document.getElementById('lightboxVideo');
+  const cap = document.getElementById('lightboxCaption');
+  if(type==='image') {
+    img.src = item.querySelector('img').src;
+    img.style.display = 'block';
+    vid.style.display = 'none';
+    vid.pause();
+    cap.textContent = item.querySelector('.gallery-item-tag')?.textContent || '';
+  } else if(type==='video') {
+    vid.src = item.querySelector('video').src;
+    vid.style.display = 'block';
+    img.style.display = 'none';
+  }
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+  if(e && e.target !== e.currentTarget && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('active');
+  document.getElementById('lightboxVideo').pause();
+  document.body.style.overflow = '';
+}
+
+// ── Reel play ──
+function playReel(card) {
+  const video = card.querySelector('video');
+  if(card.classList.contains('playing')) {
+    video.pause();
+    card.classList.remove('playing');
+  } else {
+    document.querySelectorAll('.reel-card.playing').forEach(c => {
+      c.querySelector('video').pause();
+      c.classList.remove('playing');
+    });
+    video.play();
+    card.classList.add('playing');
+  }
+}
+
+function toggleVideoPlay(card) {
+  const video = card.querySelector('video');
+  if(card.classList.contains('playing')) {
+    video.pause();
+    card.classList.remove('playing');
+  } else {
+    document.querySelectorAll('.video-testimonial-card.playing').forEach(c => {
+      c.querySelector('video').pause();
+      c.classList.remove('playing');
+    });
+    video.play();
+    card.classList.add('playing');
+  }
+}
+
+// ── Form submit ──
+function submitForm(e) {
+  e.preventDefault();
+  document.getElementById('successModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('inquiryForm').reset();
+}
+
+function closeModal(e) {
+  if(e.target === e.currentTarget) closeSuccessModal();
+}
+function closeSuccessModal() {
+  document.getElementById('successModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ── Admin panel ──
+function toggleAdmin() {
+  document.getElementById('adminPanel').classList.toggle('active');
+}
+
+function toggleTestimonialForm() {
+  document.getElementById('testimonialForm').classList.toggle('active');
+}
+
+// Admin: upload photos to gallery
+function adminUploadPhotos(event) {
+  const files = Array.from(event.target.files);
+  const grid = document.getElementById('galleryGrid');
+  files.forEach(file => {
+    const url = URL.createObjectURL(file);
+    const cat = prompt('Category for "' + file.name + '"?\nOptions: bridal | bridesmaid | hairstyle | party', 'party') || 'party';
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.dataset.cat = cat;
+    item.onclick = () => openLightbox(item, 'image');
+    item.innerHTML = `<img src="${url}" alt="Uploaded photo"><div class="gallery-item-overlay"><span class="gallery-item-tag">${cat.charAt(0).toUpperCase()+cat.slice(1)}</span></div>`;
+    grid.appendChild(item);
+  });
+  event.target.value = '';
+}
+
+// Admin: upload videos to video gallery
+function adminUploadVideos(event) {
+  const files = Array.from(event.target.files);
+  const grid = document.getElementById('videoGalleryGrid');
+  files.forEach(file => {
+    const url = URL.createObjectURL(file);
+    const item = document.createElement('div');
+    item.className = 'video-gallery-item';
+    item.innerHTML = `<video src="${url}" controls preload="none"></video>`;
+    grid.appendChild(item);
+  });
+  event.target.value = '';
+}
+
+// Admin: add video testimonial
+function adminUploadTestimonialVideo(event) {
+  const file = event.target.files[0];
+  if(!file) return;
+  const url = URL.createObjectURL(file);
+  const name = prompt('Client name for this video testimonial:', 'Client') || 'Client';
+  const sub = prompt('Subtitle / occasion:', 'Bridal Story') || '';
+  const grid = document.getElementById('videoTestimonialsGrid');
+  const card = document.createElement('div');
+  card.className = 'video-testimonial-card';
+  card.onclick = () => toggleVideoPlay(card);
+  card.innerHTML = `<video src="${url}" preload="none" loop></video><div class="video-play-btn"></div><div class="video-testimonial-overlay"><div class="video-client-name">${name}</div><div class="video-client-event">${sub}</div></div>`;
+  grid.appendChild(card);
+  event.target.value = '';
+}
+
+// Admin: add text testimonial
+function saveTestimonial() {
+  const name = document.getElementById('tName').value.trim();
+  const role = document.getElementById('tRole').value.trim();
+  const text = document.getElementById('tText').value.trim();
+  if(!name || !text) { alert('Please fill in the name and review text.'); return; }
+  const initial = name.charAt(0).toUpperCase();
+  const grid = document.getElementById('testimonialsGrid');
+  const card = document.createElement('div');
+  card.className = 'testimonial-card';
+  card.innerHTML = `<div class="stars">${'<div class="star"></div>'.repeat(5)}</div><p class="testimonial-text">${text}</p><div class="testimonial-author"><div class="testimonial-avatar">${initial}</div><div><div class="testimonial-name">${name}</div><div class="testimonial-role">${role}</div></div></div>`;
+  grid.appendChild(card);
+  document.getElementById('tName').value = '';
+  document.getElementById('tRole').value = '';
+  document.getElementById('tText').value = '';
+  document.getElementById('testimonialForm').classList.remove('active');
+  document.getElementById('adminPanel').classList.remove('active');
+}
+</script>
+</body>
+</html>
